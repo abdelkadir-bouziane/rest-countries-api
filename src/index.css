@@ -1,0 +1,321 @@
+/* Global styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  color: rgb(17, 21, 23);
+}
+
+::placeholder {
+  color: rgb(175, 175, 175);
+}
+
+html {
+  font-size: 10px;
+}
+
+/*  1. Styling the Navbar */
+
+header {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 7rem;
+  height: 7rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.menu {
+  display: flex;
+}
+
+nav {
+  margin-right: 2rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+nav ul li:hover .link {
+  color: rgba(17, 21, 23, 0.65);
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  transition: background-color 400ms;
+}
+
+.nav-link-active {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 7px;
+}
+
+.lightness-mode {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0rem 0;
+  cursor: pointer;
+  margin-left: 2rem;
+}
+
+.lightness-mode span {
+  margin-left: 1rem;
+}
+
+.menu-button {
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.menu-button > * {
+  font-size: 2.9rem;
+}
+
+/*  2. Styling the main section */
+
+main {
+  padding: 0 7rem;
+  margin: 3rem 0;
+}
+
+/*  2.1. Styling the Home page */
+
+/*  2.1.1. Styling the header of Home page */
+
+.header-homepage {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+/*  2.1.1.1. Styling the SearchBox compenent */
+
+.search-box {
+  height: 4rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+}
+
+.search-box input {
+  height: 100%;
+  flex: 1;
+  padding: 1rem 0;
+  border: none;
+  outline: none;
+  color: rgb(104, 104, 104);
+}
+
+.search-box button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search-icon,
+.cancel-icon {
+  display: block;
+  margin: 1rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+.cancel-icon > *,
+.search-icon > * {
+  fill: rgb(175, 175, 175);
+}
+
+/*  2.1.1.2. Styling the FilterBox compenent */
+
+.filter-box {
+  height: 4rem;
+  width: 60%;
+  max-width: 200px;
+  min-width: 120px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.filter-box input {
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+}
+
+/*  2.1.2. Styling the countries cards area */
+
+.countries-container {
+  display: grid;
+  gap: 4rem;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fill, 26rem);
+}
+
+/*  2.1.2.1 Styling the CountryCard compenent */
+
+.country-card {
+  font-size: 1.6rem;
+  width: 26rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.country-card .img {
+  height: 16rem;
+  border-radius: 5px 5px 0 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-info {
+  padding: 2rem;
+  box-shadow: inset 0 50px 5px -50px rgba(0, 0, 0, 0.1);
+}
+
+.card-info h3 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.card-info ul li {
+  font-size: 1.5rem;
+  list-style: none;
+  font-weight: 400;
+}
+
+.card-info ul li strong {
+  font-weight: 600;
+}
+
+/*-------------------------------------------------------------------------*/
+/*--------------------------< Responsive design >--------------------------*/
+/*-------------------------------------------------------------------------*/
+
+@media screen and (max-width: 1017px) {
+  /*  2.1.2. Styling the countries cards area */
+
+  .countries-container {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  /*  1. Styling the Navbar */
+
+  header {
+    padding: 0 2rem;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .menu {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: calc(100% - 7rem);
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(245, 245, 245);
+    box-shadow: inset 0 100px 10px -100px rgba(0, 0, 0, 0.1);
+    transition: transform 700ms;
+  }
+
+  .show-menu {
+    transform: translateX(0);
+  }
+
+  .hide-menu {
+    transform: translateX(100%);
+  }
+
+  nav {
+    margin-right: 0;
+    position: relative;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul > * + * {
+    margin-top: 4rem;
+  }
+
+  .lightness-mode {
+    justify-content: center;
+    padding: 0.8rem;
+    margin-top: 4rem;
+    margin-left: 0;
+  }
+
+  /*  2. Styling the main section */
+
+  main {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 9px;
+  }
+
+  .countries-container {
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  html {
+    font-size: 8px;
+  }
+
+  main {
+    margin-bottom: 0;
+  }
+
+  .countries-container {
+    display: block;
+  }
+
+  .country-card {
+    width: auto;
+    margin-bottom: 3rem;
+  }
+}
