@@ -23,10 +23,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 7rem;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
   height: 7rem;
+  width: 100%;
+  padding: 0 7rem;
+  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative;
 }
 
 header h1 {
@@ -96,10 +101,16 @@ nav ul li:hover .link {
 
 main {
   padding: 0 7rem;
-  margin: 3rem 0;
+  margin-top: 7rem;
+  height: calc(100vh - 7rem);
+  overflow: auto;
 }
 
 /*  2.1. Styling the Home page */
+
+.homepage-container {
+  padding: 3rem 0;
+}
 
 /*  2.1.1. Styling the header of Home page */
 
@@ -119,8 +130,8 @@ main {
   max-width: 450px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  overflow: hidden;
   display: flex;
+  position: relative;
 }
 
 .search-box input {
@@ -130,6 +141,7 @@ main {
   border: none;
   outline: none;
   color: rgb(104, 104, 104);
+  border-radius: 5px;
 }
 
 .search-box button {
@@ -141,14 +153,20 @@ main {
 .search-icon,
 .cancel-icon {
   display: block;
-  margin: 1rem;
-  height: 2rem;
-  width: 2rem;
+  padding: 1rem;
+  height: 4rem;
+  width: 4rem;
 }
 
 .cancel-icon > *,
 .search-icon > * {
   fill: rgb(175, 175, 175);
+}
+
+.cancel-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 /*  2.1.1.2. Styling the FilterBox compenent */
@@ -157,18 +175,64 @@ main {
   height: 4rem;
   width: 60%;
   max-width: 200px;
-  min-width: 120px;
+  min-width: 150px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  overflow: hidden;
+  position: relative;
 }
 
 .filter-box input {
   height: 100%;
   width: 100%;
-  padding: 1rem;
+  padding: 1rem 2rem;
   border: none;
   outline: none;
+  border-radius: 5px;
+  background-color: white;
+  color: rgb(104, 104, 104);
+  cursor: pointer;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  height: 2rem;
+  width: 2rem;
+  fill: rgb(175, 175, 175);
+  cursor: pointer;
+  transition: transform 300ms;
+}
+
+.list-options {
+  list-style: none;
+  position: absolute;
+  top: 4.5rem;
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.list-options li {
+  color: rgb(104, 104, 104);
+  font-size: 1.4rem;
+  padding: 0.7rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.list-options li:first-child {
+  padding-top: 1.4rem;
+}
+
+.list-options li:last-child {
+  padding-bottom: 1.4rem;
+}
+
+.list-options li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /*  2.1.2. Styling the countries cards area */
@@ -205,17 +269,24 @@ main {
 .card-info h3 {
   font-size: 1.7rem;
   font-weight: 800;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-info h3 span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  opacity: 0.5;
 }
 
 .card-info ul li {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   list-style: none;
   font-weight: 400;
 }
 
 .card-info ul li strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /*-------------------------------------------------------------------------*/

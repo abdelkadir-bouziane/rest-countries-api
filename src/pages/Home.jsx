@@ -5,18 +5,24 @@ import SearchBox from "../components/SearchBox";
 import FilterBox from "../components/FilterBox";
 
 function Home() {
-  const { countries } = useContext(CountriesContext);
+  const { countries, filterValue } = useContext(CountriesContext);
 
   return (
     <section className="homepage-container">
       <div className="header-homepage">
         <SearchBox />
-        <FilterBox />
+        <FilterBox
+          options={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
+        />
       </div>
       <div className="countries-container">
-        {countries.map((country, index) => (
-          <CountryCard key={index} countryInfo={country} />
-        ))}
+        {countries.map(
+          (country, index) =>
+            country.commonName !== "Israel" &&
+            (filterValue === "" || filterValue === country.region) && (
+              <CountryCard key={index} countryInfo={country} />
+            )
+        )}
       </div>
     </section>
   );

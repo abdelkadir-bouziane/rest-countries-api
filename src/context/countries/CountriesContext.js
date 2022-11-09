@@ -7,6 +7,7 @@ const CountriesContext = createContext();
 export const CountriesProvider = ({ children }) => {
   const initialState = {
     textInput: "",
+    filterValue: "",
     countries: [],
     country: {},
   };

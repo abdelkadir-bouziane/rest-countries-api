@@ -10,6 +10,11 @@ const countriesReducer = (state, action) => {
         ...state,
         textInput: action.payload,
       };
+    case "SET_FILTER_VALUE":
+      return {
+        ...state,
+        filterValue: action.payload,
+      };
     default:
       return state;
   }
