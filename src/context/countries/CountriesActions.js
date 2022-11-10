@@ -34,3 +34,45 @@ export const searchCountries = async (text) => {
     return [];
   }
 };
+
+// Get country name from Code
+const countryName = (code) => {
+  return fetch(`${COUNTRIES_API_URL}/alpha/${code}`)
+    .then((res) => res.json())
+    .then((arr) => arr[0])
+    .then((country) => country.name.common);
+};
+
+// Get informations about a country
+
+export const getCountryInfos = async (text) => {
+  try {
+    const infos = await fetch(`${COUNTRIES_API_URL}/name/${text}?fullText=true`)
+      .then((res) => res.json())
+      .then((arr) => arr[0])
+      .then((country) => ({
+        commonName: country.name.common,
+        officialName: country.name.official,
+        population: country.population,
+        region: country.region,
+        subRegion: country.subregion,
+        capital: country.capital,
+        topLevelDomain: country.tld,
+        currencies: country.currencies,
+        languages: country.languages,
+        borderCountries: country.borders,
+        flag: country.flags.svg,
+      }));
+
+    if (infos.borderCountries === undefined) {
+      return infos;
+    } else {
+      const borders = await Promise.all(
+        infos.borderCountries.map((code) => countryName(code))
+      );
+      return { ...infos, borderCountries: borders };
+    }
+  } catch {
+    return null;
+  }
+};

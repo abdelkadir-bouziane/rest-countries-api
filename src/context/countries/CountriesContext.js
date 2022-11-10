@@ -10,11 +10,13 @@ export const CountriesProvider = ({ children }) => {
     filterValue: "",
     countries: [],
     country: {},
+    loading: false,
   };
 
   const [state, dispatch] = useReducer(countriesReducer, initialState);
 
   useEffect(() => {
+    dispatch({ type: "SET_LOADING" });
     const searchACountry = async () => {
       const result = await searchCountries(state.textInput);
       dispatch({
@@ -22,6 +24,7 @@ export const CountriesProvider = ({ children }) => {
         payload: result,
       });
     };
+
     searchACountry();
   }, [state.textInput]);
 

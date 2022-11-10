@@ -4,6 +4,13 @@ const countriesReducer = (state, action) => {
       return {
         ...state,
         countries: action.payload,
+        loading: false,
+      };
+    case "GET_COUNTRY_INFOS":
+      return {
+        ...state,
+        country: action.payload,
+        loading: false,
       };
     case "SET_TEXT_INPUT":
       return {
@@ -14,6 +21,11 @@ const countriesReducer = (state, action) => {
       return {
         ...state,
         filterValue: action.payload,
+      };
+    case "SET_LOADING":
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

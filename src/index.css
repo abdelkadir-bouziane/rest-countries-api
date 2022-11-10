@@ -24,7 +24,7 @@ header {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  z-index: 10;
+  z-index: 1;
   top: 0;
   left: 0;
   height: 7rem;
@@ -244,6 +244,11 @@ main {
   grid-template-columns: repeat(auto-fill, 26rem);
 }
 
+.home-spinner {
+  text-align: center;
+  margin-top: calc(50vh - 14rem);
+}
+
 /*  2.1.2.1 Styling the CountryCard compenent */
 
 .country-card {
@@ -287,6 +292,15 @@ main {
 
 .card-info ul li strong {
   font-weight: 700;
+}
+
+/*  2.2. Styling the Country page */
+
+.country-spinner {
+  height: calc(100vh - 7rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*-------------------------------------------------------------------------*/

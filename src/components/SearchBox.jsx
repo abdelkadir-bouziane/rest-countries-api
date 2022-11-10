@@ -14,10 +14,17 @@ function SearchBox() {
         value={textInput}
         placeholder="Search for a country..."
         onChange={(e) => {
-          dispatch({
-            type: "SET_TEXT_INPUT",
-            payload: e.target.value,
-          });
+          const fullText = e.target.value;
+          const trimmedText = e.target.value.trim();
+          if (trimmedText === "") {
+            e.target.value = "";
+          }
+          if (fullText.length <= trimmedText.length + 1) {
+            dispatch({
+              type: "SET_TEXT_INPUT",
+              payload: e.target.value,
+            });
+          }
         }}
       />
       {textInput !== "" && (
