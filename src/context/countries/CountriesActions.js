@@ -76,3 +76,8 @@ export const getCountryInfos = async (text) => {
     return null;
   }
 };
+
+// Get string number with commas
+export const numberWithCommas = (x) => {
+  return (+x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
