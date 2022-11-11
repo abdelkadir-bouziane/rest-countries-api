@@ -11,13 +11,13 @@ function Home() {
   const { countries, filterValue, loading } = useContext(CountriesContext);
   const { theme } = useContext(ThemeContext);
 
+  const regionsArray = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+
   return (
     <section className="homepage-container">
       <div className="header-homepage">
         <SearchBox />
-        <FilterBox
-          options={["Africa", "Americas", "Asia", "Europe", "Oceania"]}
-        />
+        <FilterBox options={regionsArray} />
       </div>
 
       {loading ? (

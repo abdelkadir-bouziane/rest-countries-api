@@ -108,7 +108,7 @@ function Country() {
                   {country.borderCountries.map((country, index) => (
                     <Link
                       key={index}
-                      to={`/country/${country}`}
+                      to={`/rest-countries-api/country/${country}`}
                       className="country-border-link"
                     >
                       {`${country} `}
@@ -117,22 +117,6 @@ function Country() {
                 </p>
               ) : null}
             </div>
-
-            {/*
-            <h1>
-              {country.borderCountries !== undefined
-                ? country.borderCountries.map((country, index) => (
-                    <Link
-                      key={index}
-                      to={`/country/${country}`}
-                      style={{ marginRight: "2rem" }}
-                    >
-                      {country}
-                    </Link>
-                  ))
-                : null}
-            </h1>
-            */}
           </div>
         </div>
       )}
