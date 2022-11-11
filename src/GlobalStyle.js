@@ -1,15 +1,17 @@
-/* Global styles */
+import { createGlobalStyle } from "styled-components";
 
+const GlobalStyles = createGlobalStyle`
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Nunito Sans", sans-serif;
-  color: rgb(17, 21, 23);
+  color : ${({ theme }) => theme.text}
 }
 
 ::placeholder {
-  color: rgb(175, 175, 175);
+  color: ${({ theme }) => theme.textInput};
+  opacity: 0.6
 }
 
 html {
@@ -31,7 +33,8 @@ header {
   width: 100%;
   padding: 0 7rem;
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px ${({ theme }) => theme.shaddow};
+  background-color: ${({ theme }) => theme.elementsBackground};
 }
 
 header h1 {
@@ -54,28 +57,41 @@ nav ul {
 }
 
 nav ul li:hover .link {
-  color: rgba(17, 21, 23, 0.65);
+  opacity: 0.75;
 }
 
 .link {
   display: block;
   text-decoration: none;
   padding: 0.8rem 2rem;
-  transition: background-color 400ms;
 }
 
 .nav-link-active {
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 7px;
+  background-color: ${({ theme }) => theme.activeNavLink};
+  border-radius: 10px;
 }
 
 .lightness-mode {
+  border: solid 1px ${({ theme }) => theme.text};
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 0rem 0;
+  padding: 0 1rem;
   cursor: pointer;
-  margin-left: 2rem;
+  border-radius: 10px;
+}
+
+.lightness-mode * {
+  color: ${({ theme }) => theme.text};
+}
+
+.lightness-mode:hover {
+  background-color: ${({ theme }) => theme.invElementsBackground};
+  border: solid 1px ${({ theme }) => theme.invElementsBackground};
+}
+
+.lightness-mode:hover * {
+  color: ${({ theme }) => theme.invText};
 }
 
 .lightness-mode span {
@@ -100,6 +116,7 @@ nav ul li:hover .link {
 /*  2. Styling the main section */
 
 main {
+  background-color: ${({ theme }) => theme.globalBackground};
   padding: 0 7rem;
   margin-top: 7rem;
   height: calc(100vh - 7rem);
@@ -128,10 +145,11 @@ main {
   height: 4rem;
   width: 100%;
   max-width: 450px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 10px ${({ theme }) => theme.shaddow};
   border-radius: 5px;
   display: flex;
   position: relative;
+  background-color: ${({ theme }) => theme.elementsBackground};
 }
 
 .search-box input {
@@ -140,7 +158,8 @@ main {
   padding: 1rem 0;
   border: none;
   outline: none;
-  color: rgb(104, 104, 104);
+  color: ${({ theme }) => theme.textInput};
+  background-color: transparent;
   border-radius: 5px;
 }
 
@@ -160,7 +179,7 @@ main {
 
 .cancel-icon > *,
 .search-icon > * {
-  fill: rgb(175, 175, 175);
+  fill: ${({ theme }) => theme.textInput};
 }
 
 .cancel-icon {
@@ -176,9 +195,10 @@ main {
   width: 60%;
   max-width: 200px;
   min-width: 150px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 10px ${({ theme }) => theme.shaddow};
   border-radius: 5px;
   position: relative;
+  background-color: ${({ theme }) => theme.elementsBackground};
 }
 
 .filter-box input {
@@ -188,8 +208,8 @@ main {
   border: none;
   outline: none;
   border-radius: 5px;
-  background-color: white;
-  color: rgb(104, 104, 104);
+  background-color: transparent;
+  color: ${({ theme }) => theme.textInput};
   cursor: pointer;
 }
 
@@ -200,7 +220,7 @@ main {
   margin: 1rem;
   height: 2rem;
   width: 2rem;
-  fill: rgb(175, 175, 175);
+  fill: ${({ theme }) => theme.textInput};
   cursor: pointer;
   transition: transform 300ms;
 }
@@ -212,12 +232,12 @@ main {
   top: 4.5rem;
   width: 100%;
   border-radius: 5px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: ${({ theme }) => theme.elementsBackground};
+  box-shadow: 0 0 10px ${({ theme }) => theme.shaddow};
 }
 
 .list-options li {
-  color: rgb(104, 104, 104);
+  color: ${({ theme }) => theme.textInput};
   font-size: 1.4rem;
   padding: 0.7rem 2rem;
   border-radius: 5px;
@@ -233,7 +253,7 @@ main {
 }
 
 .list-options li:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: ${({ theme }) => theme.activeNavLink};
 }
 
 /*  2.1.2. Styling the countries cards area */
@@ -256,15 +276,15 @@ main {
   font-size: 1.6rem;
   width: 26rem;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  transition: all 300ms;
-  background-color: white;
+  box-shadow: 0 0 10px ${({ theme }) => theme.shaddow};
+  transition: transform 300ms, box-shadow 300ms;
+  background-color: ${({ theme }) => theme.elementsBackground};
   position: relative;
 }
 
 .country-card:hover {
   transform: scale(1.02) perspective(1000px) rotateX(-3deg) rotateY(-6deg);
-  box-shadow: 6px -3px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 6px -3px 20px ${({ theme }) => theme.shaddow};
 }
 
 .before-country-card {
@@ -276,12 +296,11 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
-  cursor: pointer;
+  z-index: 0;
   background: linear-gradient(
     45deg,
-    rgba(0, 0, 0, 0.06) 10%,
-    rgba(0, 0, 0, 0) 50%
+    ${({ theme }) => theme.cardGradientGray} 10%,
+    transparent 50%
   );
   opacity: 0;
   transition: all 300ms;
@@ -301,8 +320,7 @@ main {
 
 .card-info {
   padding: 2rem;
-  box-shadow: inset 0 50px 5px -50px rgba(0, 0, 0, 0.1);
-  transition: all 300ms;
+  box-shadow: inset 0 50px 5px -50px ${({ theme }) => theme.shaddow};
 }
 
 .card-info h3 {
@@ -354,9 +372,9 @@ main {
   border: none;
   outline: none;
   border-radius: 5px;
-  background-color: white;
-  color: rgb(17, 21, 23);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: ${({ theme }) => theme.elementsBackground};
+  color: ${({ theme }) => theme.textInput};
+  box-shadow: 0 0 10px ${({ theme }) => theme.shaddow};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -367,7 +385,7 @@ main {
   display: inline-block;
   height: 2rem;
   width: 2rem;
-  fill: rgb(17, 21, 23);
+  fill: ${({ theme }) => theme.textInput};
   margin-right: 1rem;
 }
 
@@ -391,7 +409,7 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 0 10px ${({ theme }) => theme.shaddow});
 }
 
 .texts {
@@ -436,15 +454,20 @@ main {
 }
 
 .country-border-link {
-  color: rgba(17, 21, 23, 0.65);
+  color: ${({ theme }) => theme.textInput};
+  background-color: ${({ theme }) => theme.elementsBackground};
   font-size: 1.4rem;
   font-weight: 600;
   display: inline-block;
   text-decoration: none;
-  margin: 4px 2px;
+  margin: 4px 4px;
   padding: 0.4rem 2.5rem;
   border-radius: 5px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 3px ${({ theme }) => theme.shaddow};
+}
+
+.country-border-link:hover {
+  background-color: ${({ theme }) => theme.activeNavLink}
 }
 
 /*-------------------------------------------------------------------------*/
@@ -490,8 +513,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(245, 245, 245);
-    box-shadow: inset 0 100px 10px -100px rgba(0, 0, 0, 0.1);
+    background-color: ${({ theme }) => theme.elementsBackground};
+    box-shadow: inset 0 100px 10px -100px ${({ theme }) => theme.shaddow};
     transition: transform 700ms;
   }
 
@@ -577,3 +600,7 @@ main {
     margin-bottom: 3rem;
   }
 }
+
+`;
+
+export default GlobalStyles;

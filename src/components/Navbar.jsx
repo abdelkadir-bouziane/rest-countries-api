@@ -1,10 +1,20 @@
 import { NavLink } from "react-router-dom";
-import { FaSun } from "react-icons/fa";
+import { FaSun, FaMoon } from "react-icons/fa";
 import { CgClose, CgMenu } from "react-icons/cg";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ThemeContext from "../context/theme/ThemeContext";
 
 function Navbar() {
   const [menuVisibility, setMenuVisibility] = useState(false);
+  const { theme, dispatch } = useContext(ThemeContext);
+
+  const changeMode = () => {
+    const payload = theme === "light" ? "dark" : "light";
+    dispatch({
+      type: "SET_THEME",
+      payload,
+    });
+  };
 
   return (
     <header>
@@ -48,9 +58,18 @@ function Navbar() {
             </li>
           </ul>
         </nav>
-        <div className="lightness-mode">
-          <FaSun />
-          <span>Light Mode</span>
+        <div className="lightness-mode" onClick={changeMode}>
+          {theme === "light" ? (
+            <>
+              <FaMoon />
+              <span>Dark Mode</span>
+            </>
+          ) : (
+            <>
+              <FaSun />
+              <span>Light Mode</span>
+            </>
+          )}
         </div>
       </div>
     </header>

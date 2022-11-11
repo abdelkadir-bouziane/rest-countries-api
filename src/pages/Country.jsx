@@ -7,9 +7,12 @@ import {
   getCountryInfos,
   numberWithCommas,
 } from "../context/countries/CountriesActions";
+import ThemeContext from "../context/theme/ThemeContext";
+import { themes } from "../context/theme/themes";
 
 function Country() {
   const { country, loading, dispatch } = useContext(CountriesContext);
+  const { theme } = useContext(ThemeContext);
 
   const params = useParams();
 
@@ -46,7 +49,7 @@ function Country() {
     <>
       {loading ? (
         <div className="country-spinner">
-          <Loader color="rgb(17, 21, 23)" size={70} />
+          <Loader size={70} color={themes[theme].text} />
         </div>
       ) : (
         <div className="countrypage-container">
