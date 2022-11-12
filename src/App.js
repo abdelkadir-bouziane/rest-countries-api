@@ -22,7 +22,7 @@ function App() {
           <Navbar />
           <main>
             <Routes>
-              <Route path="/rest-countries-api/" element={<Home />} />
+              <Route path="/rest-countries-api" element={<Home />} />
               <Route path="/rest-countries-api/about" element={<About />} />
               <Route
                 path="/rest-countries-api/country/:country"

@@ -494,7 +494,7 @@ main {
 .not-found-page-container .link {
   font-size: min(10vw, 2.7rem);
   font-weight: 300;
-  margin-top: 4rem;
+  margin: 4rem 0;
   display: flex;
   justify-content: center;
   align-items: center;

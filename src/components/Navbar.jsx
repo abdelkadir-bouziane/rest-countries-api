@@ -32,7 +32,7 @@ function Navbar() {
           <ul>
             <li>
               <NavLink
-                to="/rest-countries-api/"
+                to="/rest-countries-api"
                 className={({ isActive }) =>
                   isActive ? "link nav-link-active" : "link"
                 }
