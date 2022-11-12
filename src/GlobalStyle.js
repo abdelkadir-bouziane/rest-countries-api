@@ -470,6 +470,46 @@ main {
   background-color: ${({ theme }) => theme.activeNavLink}
 }
 
+/*  2.3. Styling the NotFound page */
+
+.not-found-page-container {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.not-found-page-container h1 {
+  font-size: min(50vw, 17rem);
+  font-weight: 700;
+}
+
+.not-found-page-container p {
+  font-size: min(10vw, 4rem);
+  font-weight: 700;
+}
+
+.not-found-page-container .link {
+  font-size: min(10vw, 2.7rem);
+  font-weight: 300;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000px;
+  height: min(45vw, 13rem);
+  width: min(45vw, 13rem);
+  color: ${({ theme }) => theme.globalBackground};
+  background-color: ${({ theme }) => theme.text};
+  transition: transform 300ms;
+}
+
+.not-found-page-container .link:hover {
+  transform: scale(1.03);
+}
+
 /*-------------------------------------------------------------------------*/
 /*--------------------------< Responsive design >--------------------------*/
 /*-------------------------------------------------------------------------*/
