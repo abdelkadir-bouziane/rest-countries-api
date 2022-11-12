@@ -108,7 +108,7 @@ function Country() {
                   {country.borderCountries.map((country, index) => (
                     <Link
                       key={index}
-                      to={`/rest-countries-api/country/${country}`}
+                      to={`/country/${country}`}
                       className="country-border-link"
                     >
                       {`${country} `}

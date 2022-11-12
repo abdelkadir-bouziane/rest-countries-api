@@ -1,5 +1,5 @@
 import { ThemeProvider } from "styled-components";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -22,12 +22,9 @@ function App() {
           <Navbar />
           <main>
             <Routes>
-              <Route path="/rest-countries-api" element={<Home />} />
-              <Route path="/rest-countries-api/about" element={<About />} />
-              <Route
-                path="/rest-countries-api/country/:country"
-                element={<Country />}
-              />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/country/:country" element={<Country />} />
               <Route path="*" element={<NouFound />} />
             </Routes>
           </main>

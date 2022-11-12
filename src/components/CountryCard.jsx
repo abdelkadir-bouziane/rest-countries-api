@@ -37,7 +37,7 @@ function CountryCard({ countryInfo }) {
         </ul>
       </div>
       <Link
-        to={`/rest-countries-api/country/${countryInfo.commonName}`}
+        to={`/country/${countryInfo.commonName}`}
         className="before-country-card"
       ></Link>
     </article>
