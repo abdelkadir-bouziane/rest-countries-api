@@ -24,6 +24,8 @@ function Home() {
         <div className="home-spinner">
           <Loader size={70} color={themes[theme].text} />
         </div>
+      ) : countries.length === 0 ? (
+        <h3 className="no-results-found">No results found</h3>
       ) : (
         <div className="countries-container">
           {countries.map(

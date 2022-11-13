@@ -263,7 +263,15 @@ main {
 
 .home-spinner {
   text-align: center;
-  margin-top: calc(50vh - 14rem);
+  padding-top: max(calc(50vh - 14rem), 5rem);
+}
+
+.no-results-found {
+  font-size: 5rem;
+  font-weight: 700;
+  opacity: 0.1;
+  text-align: center;
+  padding-top: max(calc(47vh - 14rem), 5rem);
 }
 
 /*  2.1.2.1 Styling the CountryCard compenent */

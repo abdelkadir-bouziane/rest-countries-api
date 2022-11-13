@@ -30,7 +30,7 @@ function Country() {
     };
 
     getInfos();
-  }, [params.country, dispatch]);
+  }, [params.country, dispatch, navigate]);
 
   const currenciesString = (currObj) => {
     let tab = [];
@@ -68,26 +68,36 @@ function Country() {
               <h2>{country.commonName}</h2>
               <div className="info-items">
                 <ul>
-                  <li>
-                    <strong>Official Name: </strong>
-                    {country.officialName}
-                  </li>
-                  <li>
-                    <strong>Population: </strong>
-                    {numberWithCommas(country.population)}
-                  </li>
-                  <li>
-                    <strong>Region: </strong>
-                    {country.region}
-                  </li>
-                  <li>
-                    <strong>Sub Region: </strong>
-                    {country.subRegion}
-                  </li>
-                  <li>
-                    <strong>Capital: </strong>
-                    {country.capital}
-                  </li>
+                  {country.officialName !== undefined ? (
+                    <li>
+                      <strong>Official Name: </strong>
+                      {country.officialName}
+                    </li>
+                  ) : null}
+                  {country.population !== undefined ? (
+                    <li>
+                      <strong>Population: </strong>
+                      {numberWithCommas(country.population)}
+                    </li>
+                  ) : null}
+                  {country.region !== undefined ? (
+                    <li>
+                      <strong>Region: </strong>
+                      {country.region}
+                    </li>
+                  ) : null}
+                  {country.subRegion !== undefined ? (
+                    <li>
+                      <strong>Sub Region: </strong>
+                      {country.subRegion}
+                    </li>
+                  ) : null}
+                  {country.capital !== undefined ? (
+                    <li>
+                      <strong>Capital: </strong>
+                      {country.capital}
+                    </li>
+                  ) : null}
                 </ul>
 
                 <ul>
@@ -97,14 +107,18 @@ function Country() {
                       {country.topLevelDomain}
                     </li>
                   ) : null}
-                  <li>
-                    <strong>Currencies: </strong>
-                    {currenciesString(country.currencies)}
-                  </li>
-                  <li>
-                    <strong>Languages: </strong>
-                    {languagesString(country.languages)}
-                  </li>
+                  {country.currencies !== undefined ? (
+                    <li>
+                      <strong>Currencies: </strong>
+                      {currenciesString(country.currencies)}
+                    </li>
+                  ) : null}
+                  {country.languages !== undefined ? (
+                    <li>
+                      <strong>Languages: </strong>
+                      {languagesString(country.languages)}
+                    </li>
+                  ) : null}
                 </ul>
               </div>
               {country.borderCountries !== undefined ? (
