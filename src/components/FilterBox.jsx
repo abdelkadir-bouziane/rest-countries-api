@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { MdOutlineKeyboardArrowDown as ArrowIcon } from "react-icons/md";
 import CountriesContext from "../context/countries/CountriesContext";
+import OutsideAlerter from "./OutsideAlerter";
 
 function FilterBox({ options }) {
   const { filterValue, dispatch } = useContext(CountriesContext);
@@ -18,37 +19,39 @@ function FilterBox({ options }) {
 
   return (
     <div className="filter-box">
-      <div
-        className="input-div"
-        onClick={() => {
-          setOptionsVisible(!optionsVisible);
-        }}
-      >
-        <input
-          type="text"
-          value={filterValue}
-          placeholder="Filter by Region..."
-          disabled
-        />
-        <ArrowIcon
-          className="arrow-icon"
-          style={
-            optionsVisible && {
-              transform: "rotate(180deg)",
+      <OutsideAlerter hideListOption={() => setOptionsVisible(false)}>
+        <div
+          className="input-div"
+          onClick={() => {
+            setOptionsVisible(!optionsVisible);
+          }}
+        >
+          <input
+            type="text"
+            value={filterValue}
+            placeholder="Filter by Region..."
+            disabled
+          />
+          <ArrowIcon
+            className="arrow-icon"
+            style={
+              optionsVisible && {
+                transform: "rotate(180deg)",
+              }
             }
-          }
-        />
-      </div>
-      {optionsVisible && (
-        <ul className="list-options">
-          <li onClick={(e) => handleSelectOption(e)}>No filter</li>
-          {options.map((option, index) => (
-            <li key={index} onClick={(e) => handleSelectOption(e)}>
-              {option}
-            </li>
-          ))}
-        </ul>
-      )}
+          />
+        </div>
+        {optionsVisible && (
+          <ul className="list-options">
+            <li onClick={(e) => handleSelectOption(e)}>No filter</li>
+            {options.map((option, index) => (
+              <li key={index} onClick={(e) => handleSelectOption(e)}>
+                {option}
+              </li>
+            ))}
+          </ul>
+        )}
+      </OutsideAlerter>
     </div>
   );
 }
