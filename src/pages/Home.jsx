@@ -11,7 +11,14 @@ function Home() {
   const { countries, filterValue, loading } = useContext(CountriesContext);
   const { theme } = useContext(ThemeContext);
 
-  const regionsArray = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+  const regionsArray = [
+    "Africa",
+    "Americas",
+    "Asia",
+    "Europe",
+    "Oceania",
+    "Antarctic",
+  ];
 
   return (
     <section className="homepage-container">
@@ -30,7 +37,6 @@ function Home() {
         <div className="countries-container">
           {countries.map(
             (country, index) =>
-              country.commonName !== "Israel" &&
               (filterValue === "" || filterValue === country.region) && (
                 <CountryCard key={index} countryInfo={country} />
               )

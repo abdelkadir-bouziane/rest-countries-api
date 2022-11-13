@@ -22,18 +22,24 @@ function CountryCard({ countryInfo }) {
           <span>{countryInfo.officialName}</span>
         </h3>
         <ul>
-          <li>
-            <strong>Population: </strong>
-            {numberWithCommas(countryInfo.population)}
-          </li>
-          <li>
-            <strong>Region: </strong>
-            {countryInfo.region}
-          </li>
-          <li>
-            <strong>Capital: </strong>
-            {countryInfo.capital}
-          </li>
+          {countryInfo.population !== undefined ? (
+            <li>
+              <strong>Population: </strong>
+              {numberWithCommas(countryInfo.population)}
+            </li>
+          ) : null}
+          {countryInfo.region !== undefined ? (
+            <li>
+              <strong>Region: </strong>
+              {countryInfo.region}
+            </li>
+          ) : null}
+          {countryInfo.capital !== undefined ? (
+            <li>
+              <strong>Capital: </strong>
+              {countryInfo.capital}
+            </li>
+          ) : null}
         </ul>
       </div>
       <Link

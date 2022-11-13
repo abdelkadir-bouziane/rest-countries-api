@@ -123,6 +123,9 @@ main {
 
 .homepage-container {
   padding: 3rem 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /*  2.1.1. Styling the header of Home page */
@@ -262,16 +265,21 @@ main {
 }
 
 .home-spinner {
-  text-align: center;
-  padding-top: max(calc(50vh - 14rem), 5rem);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .no-results-found {
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   opacity: 0.1;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding-top: max(calc(47vh - 14rem), 5rem);
 }
 
 /*  2.1.2.1 Styling the CountryCard compenent */
@@ -517,7 +525,7 @@ main {
 /*  2.4. Styling the About page */
 
 .about-page-container {
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   min-height: 100%;
   padding: 4rem 0;
   display: flex;
@@ -545,10 +553,9 @@ main {
 }
 
 .about-page-container p:last-child {
-  font-size: 1.7rem;
   font-style: italic;
-  opacity: 0.6;
-  margin-top: 8rem;
+  opacity: 0.4;
+  margin-top: 6rem;
 }
 
 /*-------------------------------------------------------------------------*/

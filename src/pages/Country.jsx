@@ -20,7 +20,7 @@ function Country() {
     dispatch({ type: "SET_LOADING" });
     const getInfos = async () => {
       const result = await getCountryInfos(params.country);
-      if (!result) {
+      if (!result || result.commonName === "Israel") {
         navigate("/not-found");
       }
       dispatch({

@@ -50,8 +50,7 @@ function About() {
 
       <p>
         Ps: there is also a <Link to="/blabla">Not Found page</Link> that you
-        get when you try to access a wrong url. If I coded it, you should see it
-        XD.
+        get when you try to access a wrong url.
       </p>
     </section>
   );
