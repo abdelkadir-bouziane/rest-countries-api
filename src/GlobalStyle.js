@@ -72,26 +72,22 @@ nav ul li:hover .link {
 }
 
 .lightness-mode {
-  border: solid 1px ${({ theme }) => theme.text};
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 0 1rem;
   cursor: pointer;
   border-radius: 10px;
+
+  background-color: ${({ theme }) => theme.invElementsBackground};
 }
 
 .lightness-mode * {
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.invText};
 }
 
 .lightness-mode:hover {
-  background-color: ${({ theme }) => theme.invElementsBackground};
-  border: solid 1px ${({ theme }) => theme.invElementsBackground};
-}
-
-.lightness-mode:hover * {
-  color: ${({ theme }) => theme.invText};
+  opacity: 0.75;
 }
 
 .lightness-mode span {
@@ -513,7 +509,7 @@ main {
 /*  2.4. Styling the About page */
 
 .about-page-container {
-  font-size: 2.3rem;
+  font-size: 2.1rem;
   min-height: 100%;
   padding: 4rem 0;
   display: flex;
@@ -523,12 +519,8 @@ main {
 }
 
 .about-page-container p {
+  width: 100%;
   max-width: 1000px;
-  
-}
-
-.about-page-container p:first-child {
-  margin-bottom: 4rem;
 }
 
 .about-page-container p a {
@@ -538,6 +530,17 @@ main {
 
 .about-page-container p a:hover {
   opacity: 0.75;
+}
+
+.about-page-container p:first-child {
+  margin-bottom: 2rem;
+}
+
+.about-page-container p:last-child {
+  font-size: 1.7rem;
+  font-style: italic;
+  opacity: 0.6;
+  margin-top: 8rem;
 }
 
 /*-------------------------------------------------------------------------*/

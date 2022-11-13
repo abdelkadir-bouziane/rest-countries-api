@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ClipLoader as Loader } from "react-spinners";
 import CountriesContext from "../context/countries/CountriesContext";
 import BackBtn from "../components/BackBtn";
@@ -13,13 +13,16 @@ import { themes } from "../context/theme/themes";
 function Country() {
   const { country, loading, dispatch } = useContext(CountriesContext);
   const { theme } = useContext(ThemeContext);
-
   const params = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch({ type: "SET_LOADING" });
     const getInfos = async () => {
       const result = await getCountryInfos(params.country);
+      if (!result) {
+        navigate("/not-found");
+      }
       dispatch({
         type: "GET_COUNTRY_INFOS",
         payload: result,
@@ -47,7 +50,7 @@ function Country() {
 
   return (
     <>
-      {loading ? (
+      {loading || !country ? (
         <div className="country-spinner">
           <Loader size={70} color={themes[theme].text} />
         </div>
@@ -88,10 +91,12 @@ function Country() {
                 </ul>
 
                 <ul>
-                  <li>
-                    <strong>Top Level Domain: </strong>
-                    {country.topLevelDomain}
-                  </li>
+                  {country.topLevelDomain !== undefined ? (
+                    <li>
+                      <strong>Top Level Domain: </strong>
+                      {country.topLevelDomain}
+                    </li>
+                  ) : null}
                   <li>
                     <strong>Currencies: </strong>
                     {currenciesString(country.currencies)}

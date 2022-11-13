@@ -9,7 +9,7 @@ export const CountriesProvider = ({ children }) => {
     textInput: "",
     filterValue: "",
     countries: [],
-    country: {},
+    country: null,
     loading: false,
   };
 

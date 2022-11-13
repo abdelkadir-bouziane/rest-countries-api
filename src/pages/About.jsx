@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function About() {
   return (
     <section className="about-page-container">
@@ -44,6 +46,12 @@ function About() {
           here
         </a>
         .
+      </p>
+
+      <p>
+        Ps: there is also a <Link to="/blabla">Not Found page</Link> that you
+        get when you try to access a wrong url. If I coded it, you should see it
+        XD.
       </p>
     </section>
   );
