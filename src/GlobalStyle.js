@@ -510,6 +510,36 @@ main {
   transform: scale(1.03);
 }
 
+/*  2.4. Styling the About page */
+
+.about-page-container {
+  font-size: 2.3rem;
+  min-height: 100%;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-page-container p {
+  max-width: 1000px;
+  
+}
+
+.about-page-container p:first-child {
+  margin-bottom: 4rem;
+}
+
+.about-page-container p a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.about-page-container p a:hover {
+  opacity: 0.75;
+}
+
 /*-------------------------------------------------------------------------*/
 /*--------------------------< Responsive design >--------------------------*/
 /*-------------------------------------------------------------------------*/
